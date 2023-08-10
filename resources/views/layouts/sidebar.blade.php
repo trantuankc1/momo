@@ -95,6 +95,7 @@
                         ><span class="hide-menu">cài đặt số điện thoại momo</span></a
                     >
                 </li>
+
 {{--                <li class="sidebar-item">--}}
 {{--                    <a--}}
 {{--                        class="sidebar-link waves-effect waves-dark sidebar-link"--}}
@@ -122,7 +123,37 @@
 {{--                        ><span class="hide-menu">LỊCH SỬ ĂN CODE</span></a--}}
 {{--                    >--}}
 {{--                </li>--}}
+                <li class="sidebar-item">
+                    <a
+                        class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('index.telegram') }}"
+                        aria-expanded="false"
+                    ><i class="mdi mdi-pencil"></i
+                        ><span class="hide-menu">cài đặt link telegram</span></a
+                    >
+                </li>
+
+                <li class="sidebar-item">
+                    <a
+                        class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('pay-qr') }}"
+                        aria-expanded="false"
+                    ><i class="mdi mdi-pencil"></i
+                        ><span class="hide-menu">cài đặt pay QR</span></a
+                    >
+                </li>
+
+                <li class="sidebar-item">
+                    <a
+                        class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('history.game') }}"
+                        aria-expanded="false"
+                    ><i class="mdi mdi-pencil"></i
+                        ><span class="hide-menu">danh sách đơn</span></a
+                    >
+                </li>
             </ul>
+
         </nav>
     </div>
 </aside>

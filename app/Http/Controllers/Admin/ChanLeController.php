@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ChanLe;
+use App\Models\HistoryTrans;
 use Illuminate\Http\Request;
 
 class ChanLeController extends Controller
@@ -11,7 +12,7 @@ class ChanLeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $chanle = ChanLe::query()->get();
 

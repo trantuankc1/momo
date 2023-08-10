@@ -63,6 +63,19 @@ Route::prefix('admin')->middleware('checklogin')->group(function () {
     Route::get('/mot-phan-ba-edit/{id}', [\App\Http\Controllers\Admin\MotPhanBaController::class, 'edit'])->name('mot-phan-ba-edit');
     Route::put('/update-mot-phan-ba/{id}', [\App\Http\Controllers\Admin\MotPhanBaController::class, 'update'])->name('update-mot-phan-ba');
 
+    Route::get('/telegram', [\App\Http\Controllers\Admin\TelegramController::class, 'index'])->name('index.telegram');
+    Route::delete('/telegram-delete/{id}', [\App\Http\Controllers\Admin\TelegramController::class, 'destroy'])->name('telegram-delete');
+    Route::get('/add-telegram', [\App\Http\Controllers\Admin\TelegramController::class, 'create'])->name('telegram-create');
+    Route::post('/store-telegram', [\App\Http\Controllers\Admin\TelegramController::class, 'store'])->name('store-telegram');
+
+    Route::get('/pay-qr', [\App\Http\Controllers\Admin\PayQRController::class, 'index'])->name('pay-qr');
+    Route::get('/add-qr', [\App\Http\Controllers\Admin\PayQRController::class, 'create'])->name('add-qr');
+    Route::post('/store-add-qr', [\App\Http\Controllers\Admin\PayQRController::class, 'store'])->name('store-add-qr');
+    Route::delete('/destroy-pay-qr/{id}', [\App\Http\Controllers\Admin\PayQRController::class, 'destroy'])->name('destroy-pay-qr');
+
+    Route::get('/history-game', [\App\Http\Controllers\Admin\HistoryTransController::class, 'index'])->name('history.game');
+    Route::put('/update-history-game/{id}', [\App\Http\Controllers\Admin\HistoryTransController::class, 'update'])->name('update.game');
+
 });
 
 Route::get('login-admin', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');

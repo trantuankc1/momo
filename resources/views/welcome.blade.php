@@ -56,7 +56,8 @@
 
             </div>
             <div class="visible-xs ">
-                <h2 class="fw-bold text-uppercase" style="color: white">chẵn lẻ momo - cá cược xanh chín - uy tín nhanh gọn !</h2>
+                <h2 class="fw-bold text-uppercase" style="color: white">chẵn lẻ momo - xanh chín - uy tín nhanh gọn
+                    !</h2>
             </div>
         </a>
     </div>
@@ -452,35 +453,38 @@
         </div>
         <div class="mt-5 panel panel-primary">
         </div>
-{{--        <div id="hu-left-display"--}}
-{{--             style="position: fixed; bottom: 15px; left: 15px; z-index: 1000; cursor: pointer; width: 15%;"--}}
-{{--             class="hidden">--}}
-{{--            <div onclick="$('#hu-left-display').hide()" class="" style="left: 120%; position: absolute;">--}}
-{{--                <font color="red">--}}
-{{--                    <big><b>[X]</b></big>--}}
-{{--                </font>--}}
-{{--            </div>--}}
-{{--            <b>--}}
-{{--                <center><img class="animate__animated animate__heartBeat animate__infinite infinite"--}}
-{{--                             src="{{ asset('image/hu.gif') }}" width="130%"--}}
-{{--                             style="max-height: 130px;max-width: 150px;min-height: 50px; min-width:80px;"/>--}}
-{{--                </center>--}}
-{{--                <center class="animate__animated animate__heartBeat animate__infinite infinite solid" style="            border-radius: 5px;margin-left:5px;--}}
-{{--            background:aquamarine;">--}}
-{{--                    NỔ HŨ--}}
-{{--                </center>--}}
-{{--            </b>--}}
-{{--        </div>--}}
+        {{--        <div id="hu-left-display"--}}
+        {{--             style="position: fixed; bottom: 15px; left: 15px; z-index: 1000; cursor: pointer; width: 15%;"--}}
+        {{--             class="hidden">--}}
+        {{--            <div onclick="$('#hu-left-display').hide()" class="" style="left: 120%; position: absolute;">--}}
+        {{--                <font color="red">--}}
+        {{--                    <big><b>[X]</b></big>--}}
+        {{--                </font>--}}
+        {{--            </div>--}}
+        {{--            <b>--}}
+        {{--                <center><img class="animate__animated animate__heartBeat animate__infinite infinite"--}}
+        {{--                             src="{{ asset('image/hu.gif') }}" width="130%"--}}
+        {{--                             style="max-height: 130px;max-width: 150px;min-height: 50px; min-width:80px;"/>--}}
+        {{--                </center>--}}
+        {{--                <center class="animate__animated animate__heartBeat animate__infinite infinite solid" style="            border-radius: 5px;margin-left:5px;--}}
+        {{--            background:aquamarine;">--}}
+        {{--                    NỔ HŨ--}}
+        {{--                </center>--}}
+        {{--            </b>--}}
+        {{--        </div>--}}
     </div>
 </div>
 
 <div class="social-button">
     <div class="social-button-content">
         <div class="phone-vr-img-circle">
-            <a href="" class="mes">
-                <img src="{{ asset('image/tele.png') }}" data-source="lazyload" data-lazy="images/tele.png"
-                     style="width: 40px; height: 40px;">
-            </a>
+            <?php $tele = \App\Models\Telegram::query()->get(); ?>
+            @foreach($tele as $tl)
+                <a href="{{ $tl->link }}" class="mes" target="_blank">
+                    <img src="{{ asset('image/tele.png') }}" data-source="lazyload" data-lazy="images/tele.png"
+                         style="width: 40px; height: 40px;">
+                </a>
+            @endforeach
         </div>
     </div>
 
@@ -1603,7 +1607,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Nhận Gift Code</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">kiểm tra mã giao dịch</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -1646,6 +1650,12 @@
                 </table>
                 <p id="selectedInfo"></p>
             </div>
+            <div class="container">
+                <?php $payqr = \App\Models\PayQR::query()->get(); ?>
+                @foreach($payqr as $pay)
+                    <img style="width: 200px; height: 200px" src="{{ Storage::url($pay->image_qr) }}" alt="">
+                @endforeach
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đã Rõ</button>
             </div>
@@ -1665,7 +1675,7 @@
             const selectedOption = selectElement.options[selectElement.selectedIndex];
             const selectedOptionText = selectedOption.textContent.trim();
 
-            selectedInfoParagraph.textContent = "Nội dung chuyển: " + selectedOptionText;
+            selectedInfoParagraph.textContent = "Nội dung chuyển hoặc quét mã qr bên dưới: " + selectedOptionText;
 
             // Hiển thị modal
             $("#selectedInfoModal").modal("show");
