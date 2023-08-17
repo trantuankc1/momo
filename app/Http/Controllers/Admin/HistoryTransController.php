@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\HistoryTrans;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HistoryTransController extends Controller
 {
@@ -70,4 +71,10 @@ class HistoryTransController extends Controller
     {
         //
     }
+
+    public function getTransactions()
+    {
+        return view('admin.history.transactions');
+    }
 }
+

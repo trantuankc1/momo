@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->middleware('checklogin')->group(function () {
+Route::prefix('thong-ke')->middleware('checklogin')->group(function () {
     Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin-home');
     Route::get('/add-momo', [\App\Http\Controllers\Admin\PhoneMomoController::class, 'create'])->name('add-momo');
     Route::post('/add-momo', [\App\Http\Controllers\Admin\PhoneMomoController::class, 'store'])->name('store-add-momo');
@@ -75,6 +75,8 @@ Route::prefix('admin')->middleware('checklogin')->group(function () {
 
     Route::get('/history-game', [\App\Http\Controllers\Admin\HistoryTransController::class, 'index'])->name('history.game');
     Route::put('/update-history-game/{id}', [\App\Http\Controllers\Admin\HistoryTransController::class, 'update'])->name('update.game');
+    Route::get('/transactions', [\App\Http\Controllers\Admin\HistoryTransController::class, 'getTransactions']);
+
 
 });
 

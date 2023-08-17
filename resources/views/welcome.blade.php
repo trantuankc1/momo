@@ -1,7 +1,7 @@
 <?php date_default_timezone_set('Asia/Ho_Chi_Minh'); ?>
 <?php $phone = \App\Models\NumberPhoneMomo::query()->get(); ?>
     <!DOCTYPE html>
-<html class="no-js" lang="vi">
+<html class="no-js" lang="vi" oncontextmenu="return false;">
 <head>
     <title>Hệ Thống Mini Game Chẳn Lẻ Momo Uy Tín - Tự Động</title>
     <meta name="description"
@@ -139,6 +139,8 @@
                     </button>
                 </div>
                 <hr style="margin-top:15px;margin-bottom:10px">
+                    <p class="btn btn-info">Millisecond {{ date('d-m-Y') }} -></p>
+                    <p class="btn btn-success" id="time"></p>
                 <div class="row">
                     <div class="animate__animated animate__bounceInDown animate__slow col-md-12 cl">
                         <div class="panel panel-custom">
@@ -199,7 +201,7 @@
                         <div class="panel panel-primary" style="margin-top:0px">
                             <div class="panel-heading text-center">
 
-                                <h4 style="margin-bottom:0px">KIỂM TRA LỊCH SỬ CHƠI</h4>
+                                <h4 style="margin-bottom:0px" class="text-uppercase">Chú ý</h4>
                             </div>
 
                             <div class="panel-body text-center">
@@ -219,7 +221,7 @@
                                             chơi sẽ được tính như sau</p>
                                         <p style="margin-right: 0px; margin-bottom: 3px; margin-left: 0px; font-family: Tahoma, Verdana, Helvetica, sans-serif; font-size: 14px;">
                                             <span style="color: rgb(255, 0, 0);"><span style="font-weight: 700;">KẾT QUẢ =&nbsp;</span></span><span
-                                                style="color: rgb(255, 0, 0);"><span style="font-weight: 700;">Mã giao dịch + Mã random"</span></span>
+                                                style="color: rgb(255, 0, 0);"><span style="font-weight: 700;">Mã giao dịch +  Millisecond"</span></span>
                                         </p></h3>
                                     <h4 style="margin-bottom: 10px; font-family: Tahoma; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); font-size: 18px; text-align: center;">
                                         <br></h4>
@@ -332,7 +334,7 @@
                                     </tbody>
                                 </table><!--<div style="margin: 0px; float: center; border: 1px dashed rgb(37 71 105); padding: 5px;font-size: 13px;text-align:center;">
 <b class="text-danger">Phần thưởng TOP sẽ được trao vào 24h mỗi ngày.</b>
-</div>-->
+</div>-->                   <b>Làm mới liên tục <img src="{{ asset('image/loading.gif') }}" alt="clmm" srcset=""></b>
                             </div>
 
                         </div>
@@ -366,6 +368,7 @@
 
                                     </tbody>
                                 </table>
+                                <b>Làm mới liên tục <img src="{{ asset('image/loading.gif') }}" alt="clmm" srcset=""></b>
                             </div>
 
                         </div>
@@ -495,7 +498,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>Giới Thiệu</h4></div>
         <div class="panel-body">
-            <div class="footer-descriptopm text-left"><strong>Chẵn lẻ momo</strong> là một loại trò chơi giải trí, có
+            <div class="footer-descriptopm text-left" style="margin: 10px"><strong>Chẵn lẻ momo</strong> là một loại trò chơi giải trí, có
                 thể giúp bạn kiếm tiền nhanh chóng chỉ sau vài thao tác trên momo. nó thuộc loại trò chơi cá cược và
                 hiện đang khá là phổ biến trong giới trẻ hiện nay bởi tính minh bạch, xanh chín của nó.Chơi chẵn lẻ trên
                 momo là trò chơi cá cược chuyển tiền dựa trên MÃ DỰ THƯỞNG được sinh ra bởi hệ thống. mà các bạn sẽ có
@@ -635,12 +638,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
-                <div id="number">
-                </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
                 <span>Chuyển tiền vào một trong các tài khoản:</span>
 
@@ -722,11 +722,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
-
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
-                <div id="number">
+                <div id="number mt-4">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
                 <span>Chuyển tiền vào một trong các tài khoản:</span>
@@ -809,10 +807,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary"> Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -898,10 +895,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -914,7 +910,7 @@
                         <td class="text-center text-white bg-success">số lần</td>
                     </tr>
                     <tbody class="text-center">
-                    <?php $taixiuhai = \App\Models\TaiXiuHai::query()->get(); ?>
+                    <?php $taixiuhai = \App\Models\TaiXiuHai::query()->get();?>
                     @foreach($phone as $number)
                         <tr @if($number->status == 2) style="display: none" @endif>
                             <td id="sdt">{{ $number->sdt }}
@@ -986,10 +982,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -1080,10 +1075,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -1177,10 +1171,9 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -1271,10 +1264,10 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
+
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -1371,10 +1364,10 @@
                 <div class="text-uppercase" style="color: white">
                     <span class="label label-success">mã kết quả</span> <span style="color: black">=</span> <span
                         class="label label-danger">mã giao dịch</span> <span style="color: black">+</span> <span
-                        class="label label-primary">mã random</span>
+                        class="label label-primary">mã  Millisecond:</span>
                 </div>
 
-                <span style="cursor: pointer; display: inline-block; margin-top: 15px;" class="text-capitalize fw-bold">mã random</span>
+
                 <div id="number">
                 </div>
                 <div class="border-bottom" style="border-bottom: 1px solid red"></div>
@@ -1691,7 +1684,26 @@
         }, 1)
     }
 
-    countIntRandom()
+    function countIntRandom1() {
+        let number = 1;
+        setInterval(function () {
+            number++
+            document.getElementById('time').innerHTML = number
+        }, 1)
+    }
+
+    countIntRandom1()
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "F12" || e.keyCode === 123) {
+            e.preventDefault();
+        }
+    });
+
+    // Vô hiệu hóa chuột phải trên trang web
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+    });
 </script>
 
 <script type="text/javascript" src="{{ asset('bootstrap/js/qr-code-styling.js') }}"></script>
