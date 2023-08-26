@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TaiXiuRequest;
 use App\Models\TaiXiu;
-use Illuminate\Http\Request;
 
 class TaiXiuController extends Controller
 {
@@ -29,7 +29,7 @@ class TaiXiuController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TaiXiuRequest $request)
     {
         $taixiu = new TaiXiu();
         $taixiu->price_min = $request->get('price_min');
@@ -62,7 +62,7 @@ class TaiXiuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TaiXiuRequest $request, string $id)
     {
         $taixiu = TaiXiu::query()->findOrFail($id);
         $taixiu->price_min = $request->get('price_min');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MotPhanBaRequest;
 use App\Models\MotPhanBa;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class MotPhanBaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MotPhanBaRequest $request)
     {
         $motphanba = new MotPhanBa();
         $motphanba->price_min = $request->get('price_min');
@@ -59,7 +60,7 @@ class MotPhanBaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MotPhanBaRequest $request, string $id)
     {
         $motphanba = MotPhanBa::query()->find($id);
         $motphanba->price_min = $request->input('price_min');

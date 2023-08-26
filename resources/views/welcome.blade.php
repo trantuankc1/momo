@@ -1,5 +1,6 @@
 <?php date_default_timezone_set('Asia/Ho_Chi_Minh'); ?>
 <?php $phone = \App\Models\NumberPhoneMomo::query()->get(); ?>
+
     <!DOCTYPE html>
 <html class="no-js" lang="vi" oncontextmenu="return false;">
 <head>
@@ -67,10 +68,10 @@
         <div class="content-container">
             <div class="text-center mt-3">
                 <div class="text-center">
-                    <button style="font-size:100%" class="btn btn-default mt-1 hidden" data-toggle="modal"
+                    <button style="font-size:100%" class="btn btn-default mt-1 hidden btn-info" data-toggle="modal"
                             data-bs-toggle="modal" data-bs-target="#chanle"><b> CHẴN LẺ</b>
                     </button>
-                    <button style="font-size:100%" class="btn btn-default mt-1 hidden" data-game="taixiu"
+                    <button style="font-size:100%" class="btn btn-default mt-1 hidden btn-info" data-game="taixiu"
                             data-bs-toggle="modal" data-bs-target="#taixiu">
                         <b>TÀI XỈU </b>
                     </button>
@@ -139,8 +140,8 @@
                     </button>
                 </div>
                 <hr style="margin-top:15px;margin-bottom:10px">
-                    <p class="btn btn-info">Millisecond {{ date('d-m-Y') }} -></p>
-                    <p class="btn btn-success" id="time"></p>
+                <p class="btn btn-info">Millisecond {{ date('d-m-Y') }} -></p>
+                <p class="btn btn-success" id="time"></p>
                 <div class="row">
                     <div class="animate__animated animate__bounceInDown animate__slow col-md-12 cl">
                         <div class="panel panel-custom">
@@ -334,7 +335,7 @@
                                     </tbody>
                                 </table><!--<div style="margin: 0px; float: center; border: 1px dashed rgb(37 71 105); padding: 5px;font-size: 13px;text-align:center;">
 <b class="text-danger">Phần thưởng TOP sẽ được trao vào 24h mỗi ngày.</b>
-</div>-->                   <b>Làm mới liên tục <img src="{{ asset('image/loading.gif') }}" alt="clmm" srcset=""></b>
+</div>--> <b>Làm mới liên tục <img src="{{ asset('image/loading.gif') }}" alt="clmm" srcset=""></b>
                             </div>
 
                         </div>
@@ -368,7 +369,8 @@
 
                                     </tbody>
                                 </table>
-                                <b>Làm mới liên tục <img src="{{ asset('image/loading.gif') }}" alt="clmm" srcset=""></b>
+                                <b>Làm mới liên tục <img src="{{ asset('image/loading.gif') }}" alt="clmm"
+                                                         srcset=""></b>
                             </div>
 
                         </div>
@@ -498,7 +500,8 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>Giới Thiệu</h4></div>
         <div class="panel-body">
-            <div class="footer-descriptopm text-left" style="margin: 10px"><strong>Chẵn lẻ momo</strong> là một loại trò chơi giải trí, có
+            <div class="footer-descriptopm text-left" style="margin: 10px"><strong>Chẵn lẻ momo</strong> là một loại trò
+                chơi giải trí, có
                 thể giúp bạn kiếm tiền nhanh chóng chỉ sau vài thao tác trên momo. nó thuộc loại trò chơi cá cược và
                 hiện đang khá là phổ biến trong giới trẻ hiện nay bởi tính minh bạch, xanh chín của nó.Chơi chẵn lẻ trên
                 momo là trò chơi cá cược chuyển tiền dựa trên MÃ DỰ THƯỞNG được sinh ra bởi hệ thống. mà các bạn sẽ có
@@ -654,8 +657,7 @@
                     <?php $chanle = \App\Models\ChanLe::query()->get(); ?>
                     @foreach($phone as $numberphone)
                         <tr @if($numberphone->status == 2) style="display: none" @endif>
-                            <td id="sdt">{{ $numberphone->sdt }}
-                            </td>
+                            <td id="sdt">{{ $numberphone->sdt }} </td>
                             @foreach($chanle as $cl)
                                 <td class="text-center"><span class="btn btn-info"> {{ $cl->price_min }}</span> <span
                                         class="fw-bold">-></span>
@@ -666,7 +668,6 @@
                     @endforeach
                     </tbody>
                 </table>
-
 
                 <table class="table table-hover table-bordered text-capitalize mt-3">
                     <tr>
@@ -910,7 +911,7 @@
                         <td class="text-center text-white bg-success">số lần</td>
                     </tr>
                     <tbody class="text-center">
-                    <?php $taixiuhai = \App\Models\TaiXiuHai::query()->get();?>
+                    <?php $taixiuhai = \App\Models\TaiXiuHai::query()->get(); ?>
                     @foreach($phone as $number)
                         <tr @if($number->status == 2) style="display: none" @endif>
                             <td id="sdt">{{ $number->sdt }}
@@ -1694,16 +1695,17 @@
 
     countIntRandom1()
 
-    document.addEventListener("keydown", function(e) {
+    document.addEventListener("keydown", function (e) {
         if (e.key === "F12" || e.keyCode === 123) {
             e.preventDefault();
         }
     });
 
     // Vô hiệu hóa chuột phải trên trang web
-    document.addEventListener("contextmenu", function(e) {
+    document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     });
+      
 </script>
 
 <script type="text/javascript" src="{{ asset('bootstrap/js/qr-code-styling.js') }}"></script>

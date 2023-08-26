@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChanLeRequest;
 use App\Models\ChanLe;
 use App\Models\HistoryTrans;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class ChanLeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ChanLeRequest $request)
     {
         $chanle = new ChanLe();
         $chanle->price_min = $request->get('price_min');
@@ -39,7 +40,7 @@ class ChanLeController extends Controller
 
         $chanle->save();
 
-        return redirect()->route('list-phone');
+        return redirect()->route('chan-le');
     }
 
     /**
@@ -63,7 +64,7 @@ class ChanLeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ChanLeRequest $request, string $id)
     {
         $chanle = ChanLe::query()->findOrFail($id);
         $chanle->price_min = $request->get('price_min');

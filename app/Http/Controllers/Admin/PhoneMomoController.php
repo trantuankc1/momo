@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PhoneRequest;
 use App\Models\NumberPhoneMomo;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class PhoneMomoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PhoneRequest $request)
     {
         $phone = new NumberPhoneMomo();
 
@@ -64,7 +65,7 @@ class PhoneMomoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PhoneRequest $request, string $id)
     {
         $phone = NumberPhoneMomo::query()->find($id);
         $phone->sdt = $request->get('sdt');
